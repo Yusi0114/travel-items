@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>旅遊行李清單檢查表</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #dbeafe;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --accent-green: #10b981;
+      --danger: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 20px 16px 80px;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* 進度條區域 */
+    .progress-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+      position: sticky;
+      top: 10px;
+      z-index: 10;
+      border: 1px solid var(--border);
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .progress-bar-bg {
+      height: 10px;
+      background: #edf2f7;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent-green);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* 新增項目輸入區 */
+    .add-section {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border);
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    select, input[type="text"] {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    select:focus, input[type="text"]:focus {
+      border-color: var(--primary);
+    }
+
+    input[type="text"] {
+      flex: 1;
+      min-width: 140px;
+    }
+
+    button.btn-add {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    button.btn-add:hover {
+      opacity: 0.9;
+    }
+
+    /* 清單類別區塊 */
+    .category-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border);
+    }
+
+    .category-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #334155;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .category-count {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: normal;
+    }
+
+    .item-list {
+      list-style: none;
+    }
+
+    .item-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 4px;
+      border-radius: 6px;
+      transition: background 0.15s;
+    }
+
+    .item-row:hover {
+      background: #f1f5f9;
+    }
+
+    .item-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      cursor: pointer;
+      user-select: none;
+      font-size: 0.95rem;
+    }
+
+    .item-label input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent-green);
+      cursor: pointer;
+    }
+
+    .item-label.checked span {
+      text-decoration: line-through;
+      color: var(--muted);
+    }
+
+    .btn-delete {
+      background: none;
+      border: none;
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .btn-delete:hover {
+      color: var(--danger);
+      background: #fee2e2;
+    }
+
+    /* 底部操作 */
+    .footer-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn-secondary {
+      background: #f1f5f9;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background: #e2e8f0;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>✈️ 旅遊行前檢查清單</h1>
+    </header>
+
+    <!-- 進度狀態 -->
+    <div class="progress-card">
+      <div class="progress-info">
+        <span id="progressText">準備進度：0 / 0</span>
+        <span id="progressPercent">0%</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressBar"></div>
+      </div>
+    </div>
+
+    <!-- 自訂新增項目 -->
+    <div class="add-section">
+      <select id="categorySelect">
+        <option value="重要證件與財務">重要證件與財務</option>
+        <option value="3C 數位設備">3C 數位設備</option>
+        <option value="衣物配飾">衣物配飾</option>
+        <option value="個人衛浴與保養">個人衛浴與保養</option>
+        <option value="藥品與隨身小物">藥品與隨身小物</option>
+        <option value="其他雜物">其他雜物</option>
+      </select>
+      <input type="text" id="newItemInput" placeholder="輸入想攜帶的物品..." onkeydown="handleKey(event)">
+      <button class="btn-add" onclick="addItem()">+ 新增</button>
+    </div>
+
+    <!-- 清單容器 -->
+    <div id="categoriesContainer"></div>
+
+    <!-- 底部重置選項 -->
+    <div class="footer-actions">
+      <button class="btn-secondary" onclick="resetChecked()">取消所有勾選</button>
+      <button class="btn-secondary" onclick="resetToDefault()">恢復預設清單</button>
+    </div>
+  </div>
+
+  <script>
+    // 預設行李清單模板
+    const defaultData = [
+      {
+        category: "重要證件與財務",
+        items: [
+          { text: "護照 / 身分證 / 駕照", checked: false },
+          { text: "機票 / 車票憑證（含電子檔）", checked: false },
+          { text: "現金 / 信用卡 / 交通卡", checked: false },
+          { text: "住宿預訂確認單 / 門票行程單", checked: false }
+        ]
+      },
+      {
+        category: "3C 數位設備",
+        items: [
+          { text: "手機與專用充電器", checked: false },
+          { text: "行動電源 (需隨身攜帶)", checked: false },
+          { text: "充電線 (Type-C / Lightning)", checked: false },
+          { text: "萬國轉接頭 / 延長線", checked: false },
+          { text: "耳機", checked: false }
+        ]
+      },
+      {
+        category: "衣物配飾",
+        items: [
+          { text: "天數份外衣、褲子 / 裙子", checked: false },
+          { text: "內衣褲與襪子", checked: false },
+          { text: "好走的布鞋 / 替換拖鞋", checked: false },
+          { text: "遮陽帽 / 薄外套 / 墨鏡", checked: false },
+          { text: "睡衣 / 輕便家居服", checked: false }
+        ]
+      },
+      {
+        category: "個人衛浴與保養",
+        items: [
+          { text: "牙刷、牙膏", checked: false },
+          { text: "洗面乳、卸妝用品", checked: false },
+          { text: "防曬乳", checked: false },
+          { text: "旅行組洗髮精 / 沐浴乳", checked: false },
+          { text: "保濕乳液 / 護唇膏", checked: false }
+        ]
+      },
+      {
+        category: "藥品與隨身小物",
+        items: [
+          { text: "個人常備藥（腸胃藥、止痛退燒藥、暈車藥）", checked: false },
+          { text: "OK 繃 / 簡易外傷藥膏", checked: false },
+          { text: "雨傘 / 輕便雨衣", checked: false },
+          { text: "隨身面紙 / 濕紙巾", checked: false },
+          { text: "環保購物袋 / 髒衣袋", checked: false }
+        ]
+      }
+    ];
+
+    const STORAGE_KEY = "travel_checklist_data_v1";
+    let listData = [];
+
+    // 初始化讀取資料
+    function init() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          listData = JSON.parse(saved);
+        } catch (e) {
+          listData = JSON.parse(JSON.stringify(defaultData));
+        }
+      } else {
+        listData = JSON.parse(JSON.stringify(defaultData));
+      }
+      render();
+    }
+
+    // 儲存至 LocalStorage
+    function saveData() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(listData));
+    }
+
+    // 畫面渲染
+    function render() {
+      const container = document.getElementById("categoriesContainer");
+      container.innerHTML = "";
+
+      let totalItems = 0;
+      let checkedItems = 0;
+
+      listData.forEach((cat, catIdx) => {
+        const catCard = document.createElement("div");
+        catCard.className = "category-card";
+
+        const catCheckedCount = cat.items.filter(i => i.checked).length;
+        totalItems += cat.items.length;
+        checkedItems += catCheckedCount;
+
+        catCard.innerHTML = `
+          <div class="category-title">
+            <span>${cat.category}</span>
+            <span class="category-count">${catCheckedCount} / ${cat.items.length}</span>
+          </div>
+          <ul class="item-list" id="cat-list-${catIdx}"></ul>
+        `;
+
+        const ul = catCard.querySelector(`#cat-list-${catIdx}`);
+
+        cat.items.forEach((item, itemIdx) => {
+          const li = document.createElement("li");
+          li.className = "item-row";
+          li.innerHTML = `
+            <label class="item-label ${item.checked ? 'checked' : ''}">
+              <input type="checkbox" ${item.checked ? 'checked' : ''} onchange="toggleItem(${catIdx}, ${itemIdx})">
+              <span>${escapeHtml(item.text)}</span>
+            </label>
+            <button class="btn-delete" title="刪除此項目" onclick="deleteItem(${catIdx}, ${itemIdx})">&times;</button>
+          `;
+          ul.appendChild(li);
+        });
+
+        container.appendChild(catCard);
+      });
+
+      // 更新進度條
+      const percent = totalItems === 0 ? 0 : Math.round((checkedItems / totalItems) * 100);
+      document.getElementById("progressText").textContent = `準備進度：${checkedItems} / ${totalItems}`;
+      document.getElementById("progressPercent").textContent = `${percent}%`;
+      document.getElementById("progressBar").style.width = `${percent}%`;
+
+      saveData();
+    }
+
+    // 切換打勾狀態
+    function toggleItem(catIdx, itemIdx) {
+      listData[catIdx].items[itemIdx].checked = !listData[catIdx].items[itemIdx].checked;
+      render();
+    }
+
+    // 新增項目
+    function addItem() {
+      const input = document.getElementById("newItemInput");
+      const text = input.value.trim();
+      const categoryName = document.getElementById("categorySelect").value;
+
+      if (!text) return;
+
+      let cat = listData.find(c => c.category === categoryName);
+      if (!cat) {
+        cat = { category: categoryName, items: [] };
+        listData.push(cat);
+      }
+
+      cat.items.push({ text: text, checked: false });
+      input.value = "";
+      render();
+    }
+
+    function handleKey(e) {
+      if (e.key === "Enter") {
+        addItem();
+      }
+    }
+
+    // 刪除項目
+    function deleteItem(catIdx, itemIdx) {
+      listData[catIdx].items.splice(itemIdx, 1);
+      render();
+    }
+
+    // 取消所有勾選（打包下一趟旅程時可用）
+    function resetChecked() {
+      if (confirm("確定要將所有已打勾的項目重置為未勾選嗎？")) {
+        listData.forEach(cat => {
+          cat.items.forEach(item => item.checked = false);
+        });
+        render();
+      }
+    }
+
+    // 恢復原始預設值
+    function resetToDefault() {
+      if (confirm("這會清除你所有的修改與自訂項目，並恢復成預設行李清單，確定要重置嗎？")) {
+        listData = JSON.parse(JSON.stringify(defaultData));
+        render();
+      }
+    }
+
+    // 簡易 XSS 防護
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    // 啟動
+    init();
+  </script>
+</body>
+</html>
