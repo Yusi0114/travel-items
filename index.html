@@ -12,20 +12,20 @@
             theme: {
                 extend: {
                     colors: {
-                        muji: { bg: '#F4F6FB', card: '#FFFFFF', text: '#334155', muted: '#94A3B8', accent: '#2600DB', border: '#E2E8F0', highlight: '#E0E7FF' }
+                        muji: { bg: '#F5F5F5', card: '#FFFFFF', text: '#222222', muted: '#737373', accent: '#153a97', border: '#E5E5E5', highlight: '#F0F0F0' }
                     }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #F4F6FB; color: #334155; -webkit-tap-highlight-color: transparent; font-family: 'Noto Sans TC', sans-serif; }
+        body { background-color: #F5F5F5; color: #222222; -webkit-tap-highlight-color: transparent; font-family: 'Noto Sans TC', sans-serif; }
         .tab-content { display: none; animation: fadeIn 0.3s; }
         .tab-content.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        input:focus { border-color: #2600DB; outline: none; }
+        input:focus { border-color: #153a97; outline: none; }
         
         /* 自訂細節選單樣式 */
         details > summary { list-style: none; }
@@ -39,11 +39,11 @@
         <span id="header-title" class="text-sm text-muji-muted font-bold">行程表</span>
     </header>
 
-    <main class="flex-1 overflow-y-auto no-scrollbar pb-24 relative">
+    <main class="flex-1 overflow-y-auto no-scrollbar pb-36 relative">
         
         <!-- ================= PLAN ================= -->
-        <section id="tab-plan" class="tab-content active p-5 space-y-6">
-            <div class="bg-muji-card rounded-md border border-muji-border p-4 shadow-sm">
+        <section id="tab-plan" class="tab-content active p-5">
+            <div class="bg-muji-card rounded-md border border-muji-border p-4 shadow-sm mb-6">
                 <div class="flex justify-between items-center mb-2">
                     <span class="text-xs font-bold text-muji-accent bg-muji-highlight px-2 py-1 rounded">FLIGHT</span>
                 </div>
@@ -54,27 +54,43 @@
             <!-- Day 1 -->
             <div>
                 <h2 class="text-lg font-bold border-b-2 border-muji-highlight pb-1 mb-3 text-muji-accent">10/3 (六) 抵達與 Outlet 採買</h2>
-                <div class="space-y-4 border-l-2 border-muji-border ml-2 pl-4">
+                <div class="border-l-2 border-muji-border ml-2 pl-4">
                     
-                    <div class="relative">
+                    <div class="relative pb-8">
                         <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-muji-accent rounded-full"></div>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">15</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
+                        
                         <p class="text-xs text-muji-muted font-bold">11:15 抵達</p>
-                        <p class="text-sm font-bold text-muji-text">成田機場 (NRT) <span class="inline-block text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded font-normal border border-blue-100 ml-1">京成電鐵 / JR</span></p>
-                        <p class="text-xs text-muji-muted mt-0.5"><i class="fa-solid fa-plane-arrival"></i> 酷航 TR866 | 第一航廈 30號站牌轉乘巴士</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">成田機場 (NRT)</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">京成(KS) / JR(JO)</span>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1"><i class="fa-solid fa-plane-arrival"></i> 酷航 TR866 | 第一航廈 30號站牌轉乘巴士</p>
                     </div>
 
-                    <div class="relative">
-                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-blue-400 rounded-full"></div>
-                        <p class="text-xs text-blue-500 font-bold">13:00 - 18:00</p>
-                        <p class="text-sm font-bold text-muji-text">酒々井 Premium Outlets</p>
-                        <p class="text-xs text-muji-muted mt-0.5 mb-2"><i class="fa-solid fa-bag-shopping"></i> 行李寄放與大採購</p>
+                    <div class="relative pb-8">
+                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-gray-400 rounded-full"></div>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">70</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
                         
+                        <p class="text-xs text-gray-600 font-bold">13:00 - 16:58</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">酒々井 Premium Outlets</p>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1 mb-2"><i class="fa-solid fa-bag-shopping"></i> 16:58 搭乘接駁巴士往東京車站八重洲</p>
                         <details class="bg-white border border-muji-border rounded p-2 text-sm shadow-sm">
                             <summary class="font-bold text-muji-accent cursor-pointer text-xs flex justify-between items-center">
                                 <span><i class="fa-solid fa-list-ul mr-1"></i> 展開景點清單 (1)</span>
                                 <i class="fa-solid fa-chevron-down text-muji-muted"></i>
                             </summary>
-                            <ul class="mt-2 space-y-2 border-t pt-2">
+                            <ul class="mt-2 space-y-2 border-t border-muji-border pt-2">
                                 <li class="flex justify-between items-center">
                                     <span class="text-xs font-bold">酒々井 Premium Outlets</span>
                                     <a href="https://www.google.com/maps/search/?api=1&query=酒々井+Premium+Outlets" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
@@ -83,24 +99,61 @@
                         </details>
                     </div>
 
-                    <div class="relative">
-                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-orange-400 rounded-full"></div>
-                        <p class="text-xs text-orange-500 font-bold">20:15</p>
-                        <p class="text-sm font-bold text-muji-text">大森町站 <span class="inline-block text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded font-normal border border-blue-100 ml-1">京急本線</span></p>
-                        <p class="text-xs text-red-500 mt-0.5 mb-2"><i class="fa-solid fa-utensils"></i> 晚餐 (⚠️拉麵店營業至21:00，注意壓線風險)</p>
+                    <div class="relative pb-8">
+                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-gray-500 rounded-full"></div>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">15</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
                         
+                        <p class="text-xs text-gray-700 font-bold">18:07 抵達市區</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">東京車站 (八重洲)</p>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1"><i class="fa-solid fa-bus"></i> 巴士抵達東京車站，準備分頭行動</p>
+                    </div>
+                    
+                    <div class="relative pb-8">
+                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-gray-600 rounded-full"></div>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">40</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
+                        
+                        <p class="text-xs text-gray-800 font-bold">19:00 - 21:00 分頭行動</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">Aia & Yusi 各自探索</p>
+                        </div>
+                        <div class="text-xs text-muji-muted mt-1 mb-2 space-y-1">
+                            <p><span class="font-bold text-gray-600">Aia：</span>19:00 走去做頭髮 (La fith hair sept)</p>
+                            <p><span class="font-bold text-gray-600">Yusi：</span>行程待定 (東京站周邊自由活動)</p>
+                        </div>
                         <details class="bg-white border border-muji-border rounded p-2 text-sm shadow-sm">
                             <summary class="font-bold text-muji-accent cursor-pointer text-xs flex justify-between items-center">
                                 <span><i class="fa-solid fa-list-ul mr-1"></i> 展開景點清單 (1)</span>
                                 <i class="fa-solid fa-chevron-down text-muji-muted"></i>
                             </summary>
-                            <ul class="mt-2 space-y-2 border-t pt-2">
+                            <ul class="mt-2 space-y-2 border-t border-muji-border pt-2">
                                 <li class="flex justify-between items-center">
-                                    <span class="text-xs font-bold">Onori (ONORI) 拉麵</span>
-                                    <a href="https://www.google.com/maps/search/?api=1&query=Onori+梅屋敷" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
+                                    <span class="text-xs font-bold">La fith hair sept</span>
+                                    <a href="https://maps.app.goo.gl/12nMUJ8CAMovfKdx8?g_st=ac" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
                                 </li>
                             </ul>
                         </details>
+                    </div>
+
+                    <div class="relative pb-2">
+                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-black rounded-full"></div>
+                        
+                        <p class="text-xs text-black font-bold">21:00 集合歸途</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">返回大森町住宿</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">JR(JK/JY) 轉 京急(KK)</span>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1"><i class="fa-solid fa-train"></i> 從東京站搭JR至品川，再轉乘京急本線回大森町</p>
+                        <p class="text-xs text-muji-muted mt-1 mb-2"><i class="fa-solid fa-bed"></i> 大森西 5-1-4 (OHAYO Hotel)</p>
                     </div>
                 </div>
             </div>
@@ -108,88 +161,164 @@
             <!-- Day 2 -->
             <div>
                 <h2 class="text-lg font-bold border-b-2 border-muji-highlight pb-1 mb-3 mt-6 text-muji-accent">10/4 (日) 橫濱海港與熱血演唱會</h2>
-                <div class="space-y-4 border-l-2 border-muji-border ml-2 pl-4">
+                <div class="border-l-2 border-muji-border ml-2 pl-4">
                     
-                    <div class="relative">
+                    <div class="relative pb-8">
                         <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-muji-accent rounded-full"></div>
-                        <p class="text-xs text-muji-muted font-bold">10:00 - 12:00</p>
-                        <p class="text-sm font-bold">元町・中華街站 <span class="inline-block text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded font-normal border border-blue-100 ml-1">港未來線</span></p>
-                        <p class="text-xs text-muji-muted mt-0.5 mb-2"><i class="fa-solid fa-train"></i> 異國風情散策</p>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">10</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
+
+                        <p class="text-xs text-muji-muted font-bold">10:00 - 11:45</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">橫濱站周邊</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">JR / 港未來(MM) / 各線</span>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1 mb-2"><i class="fa-solid fa-store"></i> 西口➔東口 順路掃貨與買甜甜圈</p>
+                        <details class="bg-white border border-muji-border rounded p-2 text-sm shadow-sm">
+                            <summary class="font-bold text-muji-accent cursor-pointer text-xs flex justify-between items-center">
+                                <span><i class="fa-solid fa-list-ul mr-1"></i> 展開景點清單 (4)</span>
+                                <i class="fa-solid fa-chevron-down text-muji-muted"></i>
+                            </summary>
+                            <ul class="mt-2 space-y-2 border-t border-muji-border pt-2">
+                                <li class="flex justify-between items-center border-b border-muji-border pb-1">
+                                    <span class="text-xs font-bold text-muji-accent">安利美特 横浜ビブレ (西口)</span>
+                                    <a href="https://maps.app.goo.gl/d5jdxNuFKn57D92g6" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
+                                </li>
+                                <li class="flex justify-between items-center border-b border-muji-border pb-1">
+                                    <span class="text-xs font-bold">Misaki Donut CIAL橫濱店 (中央)</span>
+                                    <a href="https://maps.app.goo.gl/2DqkPjrkQ11tXVZy7" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
+                                </li>
+                                <li class="flex justify-between items-center border-b border-muji-border pb-1">
+                                    <span class="text-xs font-bold text-muji-accent">寶可夢中心橫濱 (東口)</span>
+                                    <a href="https://maps.app.goo.gl/HP3zhTvK1bYFHH3g6?g_st=ac" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
+                                </li>
+                                <li class="flex justify-between items-center">
+                                    <span class="text-xs font-bold">Seria 横浜ベイクォーター店 (東口)</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Seria+横浜ベイクォーター店" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
+                                </li>
+                            </ul>
+                        </details>
+                    </div>
+
+                    <div class="relative pb-8">
+                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-gray-400 rounded-full"></div>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">15</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
+
+                        <p class="text-xs text-gray-500 font-bold">12:00 - 12:45</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">元町・中華街站</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">港未來線(MM)</span>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1 mb-2"><i class="fa-solid fa-camera"></i> 異國風情散策與網美冰淇淋</p>
                         <details class="bg-white border border-muji-border rounded p-2 text-sm shadow-sm">
                             <summary class="font-bold text-muji-accent cursor-pointer text-xs flex justify-between items-center">
                                 <span><i class="fa-solid fa-list-ul mr-1"></i> 展開景點清單 (3)</span>
                                 <i class="fa-solid fa-chevron-down text-muji-muted"></i>
                             </summary>
-                            <ul class="mt-2 space-y-2 border-t pt-2">
-                                <li class="flex justify-between items-center border-b pb-1">
+                            <ul class="mt-2 space-y-2 border-t border-muji-border pt-2">
+                                <li class="flex justify-between items-center border-b border-muji-border pb-1">
                                     <span class="text-xs font-bold">橫濱中華街</span>
                                     <a href="https://www.google.com/maps/search/?api=1&query=橫濱中華街" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
                                 </li>
-                                <li class="flex justify-between items-center border-b pb-1">
+                                <li class="flex justify-between items-center border-b border-muji-border pb-1">
                                     <span class="text-xs font-bold">橫濱元町商店街</span>
                                     <a href="https://maps.app.goo.gl/vf59tTZxVvwXdNf5A?g_st=ac" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
                                 </li>
                                 <li class="flex justify-between items-center">
-                                    <span class="text-xs font-bold">YOKOHAMA SORAiRO gelato</span>
+                                    <span class="text-xs font-bold text-gray-700">YOKOHAMA SORAiRO gelato</span>
                                     <a href="https://maps.app.goo.gl/SaFFga7Pmyptyd6U7?g_st=ac" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
                                 </li>
                             </ul>
                         </details>
                     </div>
 
-                    <div class="relative">
-                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-orange-400 rounded-full"></div>
-                        <p class="text-xs text-orange-500 font-bold">12:30</p>
-                        <p class="text-sm font-bold">關內站 <span class="inline-block text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded font-normal border border-blue-100 ml-1">JR根岸線 / 橫濱市營地下鐵</span></p>
-                        <p class="text-xs text-muji-muted mt-0.5 mb-2"><i class="fa-solid fa-utensils"></i> 演唱會前體力補給</p>
+                    <div class="relative pb-8">
+                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-gray-500 rounded-full"></div>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">15</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
+
+                        <p class="text-xs text-gray-700 font-bold">13:00 - 14:00</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">關內站</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">JR(JK) / 藍線(B)</span>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1 mb-2"><i class="fa-solid fa-utensils"></i> 演唱會前體力補給</p>
                         <details class="bg-white border border-muji-border rounded p-2 text-sm shadow-sm">
                             <summary class="font-bold text-muji-accent cursor-pointer text-xs flex justify-between items-center">
                                 <span><i class="fa-solid fa-list-ul mr-1"></i> 展開景點清單 (1)</span>
                                 <i class="fa-solid fa-chevron-down text-muji-muted"></i>
                             </summary>
-                            <ul class="mt-2 space-y-2 border-t pt-2">
+                            <ul class="mt-2 space-y-2 border-t border-muji-border pt-2">
                                 <li class="flex justify-between items-center">
                                     <span class="text-xs font-bold">Center Beef 橫濱關內本店</span>
-                                    <a href="https://www.google.com/maps/search/?api=1&query=Center+Beef+橫濱關內本店" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=ステーキライスの店+センタービーフ横浜関内本店" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
                                 </li>
                             </ul>
                         </details>
                     </div>
 
-                    <div class="relative">
-                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-blue-400 rounded-full"></div>
-                        <p class="text-xs text-blue-500 font-bold">14:00</p>
-                        <p class="text-sm font-bold">港未來站 / 馬車道站 <span class="inline-block text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded font-normal border border-blue-100 ml-1">港未來線</span></p>
-                        <p class="text-xs text-muji-muted mt-0.5 mb-2"><i class="fa-solid fa-person-walking"></i> 海港漫步與下午茶</p>
+                    <div class="relative pb-8">
+                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-gray-400 rounded-full"></div>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">10</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
+
+                        <p class="text-xs text-gray-600 font-bold">14:15 - 16:15</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">港未來 / 馬車道站</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">港未來線(MM)</span>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1 mb-2"><i class="fa-solid fa-person-walking"></i> 海港漫步與下午茶</p>
                         <details class="bg-white border border-muji-border rounded p-2 text-sm shadow-sm">
                             <summary class="font-bold text-muji-accent cursor-pointer text-xs flex justify-between items-center">
                                 <span><i class="fa-solid fa-list-ul mr-1"></i> 展開景點清單 (2)</span>
                                 <i class="fa-solid fa-chevron-down text-muji-muted"></i>
                             </summary>
-                            <ul class="mt-2 space-y-2 border-t pt-2">
-                                <li class="flex justify-between items-center border-b pb-1">
-                                    <span class="text-xs font-bold">橫濱紅磚倉庫</span>
-                                    <a href="https://www.google.com/maps/search/?api=1&query=橫濱紅磚倉庫" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
+                            <ul class="mt-2 space-y-2 border-t border-muji-border pt-2">
+                                <li class="flex justify-between items-center border-b border-muji-border pb-1">
+                                    <span class="text-xs font-bold">橫濱紅磚倉庫 2號館</span>
+                                    <a href="https://maps.app.goo.gl/D72wz9Nis7epk2Vx8?g_st=ac" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
                                 </li>
                                 <li class="flex justify-between items-center">
-                                    <span class="text-xs font-bold">J.S. Pancake Cafe (MARK IS)</span>
-                                    <a href="https://www.google.com/maps/search/?api=1&query=J.S.+Pancake+Cafe+MARK+IS+港未來" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
+                                    <span class="text-xs font-bold text-gray-700">J.S. Pancake Cafe (MARK IS)</span>
+                                    <a href="https://maps.app.goo.gl/P4f9DtMi9nQxEbhc7" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
                                 </li>
                             </ul>
                         </details>
                     </div>
 
-                    <div class="relative">
-                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-red-500 rounded-full shadow-[0_0_8px_rgba(239,68,68,0.6)]"></div>
+                    <div class="relative pb-8">
+                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-red-600 rounded-full shadow-[0_0_8px_rgba(239,68,68,0.6)]"></div>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">30</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
+
                         <p class="text-xs text-red-600 font-bold">16:30 抵達會場</p>
-                        <p class="text-sm font-bold">Pia Arena MM <span class="inline-block text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded font-normal border border-blue-100 ml-1">港未來線 / JR</span></p>
-                        <p class="text-xs text-muji-muted mt-0.5 mb-2"><i class="fa-solid fa-microphone"></i> 燃燒靈魂的演唱會！</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">Pia Arena MM</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">櫻木町 / 港未來(MM)</span>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1 mb-2"><i class="fa-solid fa-microphone"></i> 燃燒靈魂的演唱會！</p>
                         <details class="bg-white border border-muji-border rounded p-2 text-sm shadow-sm">
                             <summary class="font-bold text-muji-accent cursor-pointer text-xs flex justify-between items-center">
                                 <span><i class="fa-solid fa-list-ul mr-1"></i> 展開景點清單 (1)</span>
                                 <i class="fa-solid fa-chevron-down text-muji-muted"></i>
                             </summary>
-                            <ul class="mt-2 space-y-2 border-t pt-2">
+                            <ul class="mt-2 space-y-2 border-t border-muji-border pt-2">
                                 <li class="flex justify-between items-center">
                                     <span class="text-xs font-bold">Pia Arena MM</span>
                                     <a href="https://www.google.com/maps/search/?api=1&query=Pia+Arena+MM" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
@@ -198,17 +327,26 @@
                         </details>
                     </div>
 
-                    <div class="relative">
-                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-gray-600 rounded-full"></div>
-                        <p class="text-xs text-gray-600 font-bold">21:00 (宵夜)</p>
-                        <p class="text-sm font-bold">橫濱站 <span class="inline-block text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded font-normal border border-blue-100 ml-1">JR / 橫濱市營 / 各線</span></p>
-                        <p class="text-xs text-muji-muted mt-0.5 mb-2"><i class="fa-solid fa-beer-mug-empty"></i> 演唱會散場後的熱量補充</p>
+                    <div class="relative pb-8">
+                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-gray-700 rounded-full"></div>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">30</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
+                        
+                        <p class="text-xs text-gray-800 font-bold">21:00 (散場與宵夜)</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">橫濱站</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">JR / 京急(KK) / 各線</span>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1 mb-2"><i class="fa-solid fa-beer-mug-empty"></i> 演唱會散場後的熱量補充</p>
                         <details class="bg-white border border-muji-border rounded p-2 text-sm shadow-sm">
                             <summary class="font-bold text-muji-accent cursor-pointer text-xs flex justify-between items-center">
                                 <span><i class="fa-solid fa-list-ul mr-1"></i> 展開景點清單 (1)</span>
                                 <i class="fa-solid fa-chevron-down text-muji-muted"></i>
                             </summary>
-                            <ul class="mt-2 space-y-2 border-t pt-2">
+                            <ul class="mt-2 space-y-2 border-t border-muji-border pt-2">
                                 <li class="flex justify-between items-center">
                                     <span class="text-xs font-bold">Yokohama Niku Sushi (肉壽司)</span>
                                     <a href="https://www.google.com/maps/search/?api=1&query=Yokohama+Niku+Sushi" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
@@ -216,48 +354,81 @@
                             </ul>
                         </details>
                     </div>
+                    
+                    <div class="relative pb-2">
+                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-black rounded-full"></div>
+                        <p class="text-xs text-black font-bold">夜晚歸途</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">大森町站</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">京急本線(KK)</span>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1 mb-2"><i class="fa-solid fa-train"></i> 從橫濱搭乘京急本線直接返回</p>
+                        <p class="text-xs text-muji-muted mt-1"><i class="fa-solid fa-bed"></i> 大森西 5-1-4 (OHAYO Hotel)</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Day 3 -->
             <div>
                 <h2 class="text-lg font-bold border-b-2 border-muji-highlight pb-1 mb-3 mt-6 text-muji-accent">10/5 (一) 東線朝聖日 (上野➔池袋)</h2>
-                <div class="space-y-4 border-l-2 border-muji-border ml-2 pl-4">
+                <div class="border-l-2 border-muji-border ml-2 pl-4">
                     
-                    <div class="relative">
+                    <div class="relative pb-8">
                         <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-muji-accent rounded-full"></div>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">10</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
+
                         <p class="text-xs text-muji-muted font-bold">09:45</p>
-                        <p class="text-sm font-bold">上野站 <span class="inline-block text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded font-normal border border-blue-100 ml-1">JR / 銀座線 / 日比谷線</span></p>
-                        <p class="text-xs text-muji-muted mt-0.5 mb-2"><i class="fa-solid fa-store"></i> 商店街與甜點 Outlet (⚠️多數店鋪10點開門)</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">上野站</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">JR(JY) / 銀座(G) / 日比谷(H)</span>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1 mb-2"><i class="fa-solid fa-store"></i> 商店街與甜點 Outlet (⚠️多數店10點開門)</p>
                         <details class="bg-white border border-muji-border rounded p-2 text-sm shadow-sm">
                             <summary class="font-bold text-muji-accent cursor-pointer text-xs flex justify-between items-center">
-                                <span><i class="fa-solid fa-list-ul mr-1"></i> 展開景點清單 (2)</span>
+                                <span><i class="fa-solid fa-list-ul mr-1"></i> 展開景點清單 (3)</span>
                                 <i class="fa-solid fa-chevron-down text-muji-muted"></i>
                             </summary>
-                            <ul class="mt-2 space-y-2 border-t pt-2">
-                                <li class="flex justify-between items-center border-b pb-1">
+                            <ul class="mt-2 space-y-2 border-t border-muji-border pt-2">
+                                <li class="flex justify-between items-center border-b border-muji-border pb-1">
                                     <span class="text-xs font-bold">上野阿美橫商店街</span>
                                     <a href="https://maps.app.goo.gl/fNNnq1eBMWp1mv5p7" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold shrink-0">地圖</a>
                                 </li>
-                                <li class="flex justify-between items-center">
-                                    <span class="text-xs font-bold pr-2">Domremy Outlet 上野駅前店</span>
+                                <li class="flex justify-between items-center border-b border-muji-border pb-1">
+                                    <span class="text-xs font-bold pr-2 text-gray-600">Domremy Outlet 上野駅前店</span>
                                     <a href="https://maps.app.goo.gl/yEei7R9ymAWmLrLz9" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold shrink-0">地圖</a>
+                                </li>
+                                <li class="flex justify-between items-center">
+                                    <span class="text-xs font-bold pr-2">もみの気ハウスもみの湯 上野店</span>
+                                    <a href="https://www.google.com/maps/place/%E3%82%82%E3%81%BF%E3%81%AE%E6%B0%97%E3%83%8F%E3%82%A6%E3%82%B9%E3%82%82%E3%81%BF%E3%81%AE%E6%B9%AF%E4%B8%8A%E9%87%8E%E5%BA%97/@35.7087146,139.7736793,17z/data=!3m1!4b1!4m6!3m5!1s0x60188e9fc3b0a1ff:0x8f50109175f3d65c!8m2!3d35.7087146!4d139.7736793!16s%2Fg%2F1ptxmlv8_!18m1!1e1?entry=ttu" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold shrink-0">地圖</a>
                                 </li>
                             </ul>
                         </details>
                     </div>
 
-                    <div class="relative">
-                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-orange-400 rounded-full"></div>
-                        <p class="text-xs text-orange-500 font-bold">11:30</p>
-                        <p class="text-sm font-bold">日本橋站 <span class="inline-block text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded font-normal border border-blue-100 ml-1">銀座線 / 東西線 / 淺草線</span></p>
-                        <p class="text-xs text-muji-muted mt-0.5 mb-2"><i class="fa-solid fa-utensils"></i> 午餐時間</p>
+                    <div class="relative pb-8">
+                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-gray-500 rounded-full"></div>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">15</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
+
+                        <p class="text-xs text-gray-700 font-bold">11:30</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">日本橋站</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">銀座(G) / 東西(T) / 淺草(A)</span>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1 mb-2"><i class="fa-solid fa-utensils"></i> 午餐時間</p>
                         <details class="bg-white border border-muji-border rounded p-2 text-sm shadow-sm">
                             <summary class="font-bold text-muji-accent cursor-pointer text-xs flex justify-between items-center">
                                 <span><i class="fa-solid fa-list-ul mr-1"></i> 展開景點清單 (1)</span>
                                 <i class="fa-solid fa-chevron-down text-muji-muted"></i>
                             </summary>
-                            <ul class="mt-2 space-y-2 border-t pt-2">
+                            <ul class="mt-2 space-y-2 border-t border-muji-border pt-2">
                                 <li class="flex justify-between items-center">
                                     <span class="text-xs font-bold">日本橋炸豬排 一 HAJIME</span>
                                     <a href="https://www.google.com/maps/search/?api=1&query=日本橋炸豬排+一+HAJIME" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
@@ -266,41 +437,63 @@
                         </details>
                     </div>
 
-                    <div class="relative">
+                    <div class="relative pb-8">
                         <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-muji-accent rounded-full"></div>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">20</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
+
                         <p class="text-xs text-muji-muted font-bold">13:00</p>
-                        <p class="text-sm font-bold">東京站 <span class="inline-block text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded font-normal border border-blue-100 ml-1">JR各線 / 丸之內線</span></p>
-                        <p class="text-xs text-muji-muted mt-0.5 mb-2"><i class="fa-solid fa-person-walking"></i> 日本橋步行可達，逛東京一番街</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">東京站 (步行可達)</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">JR各線 / 丸之內線(M)</span>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1 mb-2"><i class="fa-solid fa-person-walking"></i> 散步逛東京一番街</p>
                     </div>
 
-                    <div class="relative">
-                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(38,0,219,0.5)]"></div>
-                        <p class="text-xs text-blue-600 font-bold">14:30 - 21:00</p>
-                        <p class="text-sm font-bold">池袋站 / 東池袋 <span class="inline-block text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded font-normal border border-blue-100 ml-1">JR / 丸之內線 / 有樂町線</span></p>
-                        <p class="text-xs text-red-500 font-bold mt-0.5 mb-2"><i class="fa-solid fa-crown"></i> ⚠️注意：多數動漫商店 20:00 關門！</p>
+                    <div class="relative pb-8">
+                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-muji-accent rounded-full shadow-[0_0_8px_rgba(21,58,151,0.5)]"></div>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">50</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
+                        
+                        <p class="text-xs text-muji-accent font-bold">14:30 - 21:00</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">池袋站 / 東池袋</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">JR(JY) / 丸之內(M) / 有樂町(Y)</span>
+                        </div>
+                        <p class="text-xs text-red-600 font-bold mt-1 mb-2"><i class="fa-solid fa-crown"></i> 動漫總決戰 (⚠️多數店20:00關門)</p>
                         <details class="bg-white border border-muji-border rounded p-2 text-sm shadow-sm" open>
                             <summary class="font-bold text-muji-accent cursor-pointer text-xs flex justify-between items-center">
-                                <span><i class="fa-solid fa-list-ul mr-1"></i> 展開景點清單 (6)</span>
+                                <span><i class="fa-solid fa-list-ul mr-1"></i> 展開景點清單 (7)</span>
                                 <i class="fa-solid fa-chevron-down text-muji-muted"></i>
                             </summary>
-                            <ul class="mt-2 space-y-2 border-t pt-2">
-                                <li class="flex justify-between items-center border-b pb-1">
+                            <ul class="mt-2 space-y-2 border-t border-muji-border pt-2">
+                                <li class="flex justify-between items-center border-b border-muji-border pb-1">
                                     <span class="text-xs font-bold text-red-600">Lashinbang (らしんばん)</span>
                                     <a href="https://www.google.com/maps/search/?api=1&query=Lashinbang+Ikebukuro" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
                                 </li>
-                                <li class="flex justify-between items-center border-b pb-1">
+                                <li class="flex justify-between items-center border-b border-muji-border pb-1">
                                     <span class="text-xs font-bold text-red-600">Pokémon Center Mega Tokyo</span>
                                     <a href="https://www.google.com/maps/search/?api=1&query=Pokémon+Center+Mega+Tokyo" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
                                 </li>
-                                <li class="flex justify-between items-center border-b pb-1">
+                                <li class="flex justify-between items-center border-b border-muji-border pb-1">
                                     <span class="text-xs font-bold text-red-600">BanG Dream! STORE</span>
                                     <a href="https://maps.app.goo.gl/yirQ6EYCFHvNehP66?g_st=ac" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
                                 </li>
-                                <li class="flex justify-between items-center border-b pb-1">
+                                <li class="flex justify-between items-center border-b border-muji-border pb-1">
                                     <span class="text-xs font-bold text-red-600">Chiikawa Park</span>
                                     <a href="https://www.google.com/maps/search/?api=1&query=Chiikawa+Park" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
                                 </li>
-                                <li class="flex justify-between items-center border-b pb-1">
+                                <li class="flex justify-between items-center border-b border-muji-border pb-1">
+                                    <span class="text-xs font-bold text-muji-accent">Seria 池袋 ALTA 店</span>
+                                    <a href="https://maps.app.goo.gl/WJYf6R7akU16Jt5g8" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
+                                </li>
+                                <li class="flex justify-between items-center border-b border-muji-border pb-1">
                                     <span class="text-xs font-bold">animate 池袋總店 (至21:00)</span>
                                     <a href="https://www.google.com/maps/search/?api=1&query=animate+池袋總店" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
                                 </li>
@@ -311,50 +504,79 @@
                             </ul>
                         </details>
                     </div>
+
+                    <div class="relative pb-2">
+                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-black rounded-full"></div>
+                        <p class="text-xs text-black font-bold">夜晚歸途</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">大森町站</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">JR(JY) 轉 京急(KK)</span>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1 mb-2"><i class="fa-solid fa-train"></i> JR山手線至品川，轉乘京急本線</p>
+                        <p class="text-xs text-muji-muted mt-1"><i class="fa-solid fa-bed"></i> 大森西 5-1-4 (OHAYO Hotel)</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Day 4 -->
             <div>
                 <h2 class="text-lg font-bold border-b-2 border-muji-highlight pb-1 mb-3 mt-6 text-muji-accent">10/6 (二) 東京西線古著與服飾探索</h2>
-                <div class="space-y-4 border-l-2 border-muji-border ml-2 pl-4">
+                <div class="border-l-2 border-muji-border ml-2 pl-4">
                     
-                    <div class="relative">
+                    <div class="relative pb-8">
                         <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-muji-accent rounded-full"></div>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">5</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
+
                         <p class="text-xs text-muji-muted font-bold">10:45</p>
-                        <p class="text-sm font-bold">澀谷站 <span class="inline-block text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded font-normal border border-blue-100 ml-1">JR / 銀座線 / 半藏門線 / 副都心線</span></p>
-                        <p class="text-xs text-muji-muted mt-0.5 mb-2"><i class="fa-solid fa-gamepad"></i> 澀谷 PARCO (⚠️11:00開門)</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">澀谷站</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">JR(JY) / 銀座(G) / 半藏門(Z) / 副都心(F)</span>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1 mb-2"><i class="fa-solid fa-gamepad"></i> 澀谷 PARCO (⚠️11:00開門)</p>
                         <details class="bg-white border border-muji-border rounded p-2 text-sm shadow-sm">
                             <summary class="font-bold text-muji-accent cursor-pointer text-xs flex justify-between items-center">
                                 <span><i class="fa-solid fa-list-ul mr-1"></i> 展開景點清單 (2)</span>
                                 <i class="fa-solid fa-chevron-down text-muji-muted"></i>
                             </summary>
-                            <ul class="mt-2 space-y-2 border-t pt-2">
-                                <li class="flex justify-between items-center border-b pb-1">
-                                    <span class="text-xs font-bold">THE★JOJO WORLD</span>
+                            <ul class="mt-2 space-y-2 border-t border-muji-border pt-2">
+                                <li class="flex justify-between items-center border-b border-muji-border pb-1">
+                                    <span class="text-xs font-bold text-muji-accent">THE★JOJO WORLD</span>
                                     <a href="https://www.google.com/maps/search/?api=1&query=THE★JOJO+WORLD" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
                                 </li>
                                 <li class="flex justify-between items-center">
-                                    <span class="text-xs font-bold">寶可夢中心澀谷店</span>
+                                    <span class="text-xs font-bold text-muji-accent">寶可夢中心澀谷店</span>
                                     <a href="https://www.google.com/maps/search/?api=1&query=寶可夢中心澀谷店" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
                                 </li>
                             </ul>
                         </details>
                     </div>
 
-                    <div class="relative">
-                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-pink-400 rounded-full"></div>
-                        <p class="text-xs text-pink-500 font-bold">13:30</p>
-                        <p class="text-sm font-bold">原宿 / 表參道站 <span class="inline-block text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded font-normal border border-blue-100 ml-1">JR山手線 / 千代田線 / 半藏門線</span></p>
-                        <p class="text-xs text-muji-muted mt-0.5 mb-2"><i class="fa-solid fa-cake-candles"></i> 潮流服飾與網美下午茶</p>
+                    <div class="relative pb-8">
+                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-gray-400 rounded-full"></div>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">20</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
+
+                        <p class="text-xs text-gray-600 font-bold">13:30</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">原宿 / 表參道站</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 px-1 py-0.5 rounded border border-gray-200">JR(JY) / 千代田(C) / 半藏門(Z)</span>
+                        </div>
+                        <p class="text-xs text-muji-muted mt-1 mb-2"><i class="fa-solid fa-cake-candles"></i> 潮流服飾與網美下午茶</p>
                         <details class="bg-white border border-muji-border rounded p-2 text-sm shadow-sm">
                             <summary class="font-bold text-muji-accent cursor-pointer text-xs flex justify-between items-center">
                                 <span><i class="fa-solid fa-list-ul mr-1"></i> 展開景點清單 (2)</span>
                                 <i class="fa-solid fa-chevron-down text-muji-muted"></i>
                             </summary>
-                            <ul class="mt-2 space-y-2 border-t pt-2">
-                                <li class="flex justify-between items-center border-b pb-1">
-                                    <span class="text-xs font-bold">Afternoon Tea LOVE & TABLE</span>
+                            <ul class="mt-2 space-y-2 border-t border-muji-border pt-2">
+                                <li class="flex justify-between items-center border-b border-muji-border pb-1">
+                                    <span class="text-xs font-bold text-gray-700">Afternoon Tea LOVE & TABLE</span>
                                     <a href="https://www.google.com/maps/search/?api=1&query=Afternoon+Tea+LOVE+%26+TABLE+Omotesando" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
                                 </li>
                                 <li class="flex justify-between items-center">
@@ -365,456 +587,15 @@
                         </details>
                     </div>
 
-                    <div class="relative">
-                        <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-blue-500 rounded-full"></div>
-                        <p class="text-xs text-blue-600 font-bold">16:00</p>
-                        <p class="text-sm font-bold">高圓寺站 <span class="inline-block text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded font-normal border border-blue-100 ml-1">JR中央線 / 總武線</span></p>
-                        <p class="text-xs text-muji-muted mt-0.5 mb-2"><i class="fa-solid fa-shirt"></i> 古著尋寶與在地商店街</p>
-                        <details class="bg-white border border-muji-border rounded p-2 text-sm shadow-sm" open>
-                            <summary class="font-bold text-muji-accent cursor-pointer text-xs flex justify-between items-center">
-                                <span><i class="fa-solid fa-list-ul mr-1"></i> 展開景點清單 (3)</span>
-                                <i class="fa-solid fa-chevron-down text-muji-muted"></i>
-                            </summary>
-                            <ul class="mt-2 space-y-2 border-t pt-2">
-                                <li class="flex justify-between items-center border-b pb-1">
-                                    <span class="text-xs font-bold">高円寺純情商店街</span>
-                                    <a href="https://maps.app.goo.gl/Zi6U848uq5KtwH6F7?g_st=ac" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
-                                </li>
-                                <li class="flex justify-between items-center border-b pb-1">
-                                    <span class="text-xs font-bold">高円寺パル商店街 (古著)</span>
-                                    <a href="https://maps.app.goo.gl/nYy4WQEeSy5wGErm6?g_st=ac" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
-                                </li>
-                                <li class="flex justify-between items-center">
-                                    <span class="text-xs font-bold">KIKI2 (精選古著)</span>
-                                    <a href="https://www.google.com/maps/search/?api=1&query=KIKI2+高圓寺" target="_blank" class="text-muji-accent bg-muji-bg px-2 py-1 rounded text-[10px] font-bold">地圖</a>
-                                </li>
-                            </ul>
-                        </details>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Day 5 -->
-            <div>
-                <h2 class="text-lg font-bold border-b-2 border-muji-highlight pb-1 mb-3 mt-6 text-muji-accent">10/7 (三) 滿載而歸</h2>
-                <div class="space-y-4 border-l-2 border-muji-border ml-2 pl-4">
-                    <div class="relative">
+                    <div class="relative pb-8">
                         <div class="absolute -left-[21px] top-1 w-2.5 h-2.5 bg-muji-accent rounded-full"></div>
-                        <p class="text-xs text-muji-muted font-bold">08:30</p>
-                        <p class="text-sm font-bold">退房與機場移動</p>
-                        <p class="text-xs text-muji-muted mt-0.5"><i class="fa-solid fa-train"></i> 京急線直通成田機場 | 最後免稅採買</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        <div class="absolute -left-[29px] bottom-1 w-[26px] bg-muji-bg flex flex-col items-center justify-center z-10 py-1">
+                            <span class="text-[10px] font-bold text-muji-accent/80 leading-none">55</span>
+                            <span class="text-[8px] font-bold text-muji-accent/80 leading-none mt-0.5">min</span>
+                            <i class="fa-solid fa-arrow-down text-[8px] text-muji-accent/80 mt-1"></i>
+                        </div>
 
-        <!-- ================= GUIDE ================= -->
-        <section id="tab-guide" class="tab-content p-5 space-y-5">
-            <h2 class="text-lg font-bold border-b-2 border-muji-highlight pb-1 mb-2 text-muji-accent">景點、交通與美食情報</h2>
-
-            <!-- 交通附件 -->
-            <div class="bg-muji-card rounded-md border border-muji-border p-4 shadow-sm text-sm">
-                <div class="flex items-center mb-2">
-                    <i class="fa-solid fa-bus text-muji-accent text-lg mr-2"></i>
-                    <h3 class="font-bold text-base text-muji-text">酒々井 Outlet 巴士時刻表</h3>
-                </div>
-                <p class="font-bold mt-2 text-blue-600">成田機場 T1 (30號站牌) ➔ Outlet</p>
-                <div class="grid grid-cols-5 gap-1 text-xs text-center mt-1 text-muji-muted bg-gray-50 p-2 rounded border border-gray-100">
-                    <div>10:50</div><div>11:38</div><div>12:53</div><div>13:43</div><div>14:38</div>
-                </div>
-                <p class="font-bold mt-3 text-orange-600">Outlet ➔ 東京車站 (八重洲)</p>
-                <div class="grid grid-cols-4 gap-1 text-xs text-center mt-1 text-muji-muted bg-gray-50 p-2 rounded mb-1 border border-gray-100">
-                    <div>16:30</div><div>16:58</div><div>17:43</div><div>18:18</div>
-                    <div>18:53</div><div>19:33</div><div>20:10</div><div>20:45</div>
-                </div>
-                <p class="text-[10px] text-gray-400 mt-1">*車程約1小時，回程採先到先上不可預約。</p>
-            </div>
-
-            <!-- 美食與名店介紹 -->
-            <div class="bg-muji-card rounded-md border border-muji-border p-4 shadow-sm text-sm">
-                <div class="flex items-center mb-2">
-                    <i class="fa-solid fa-utensils text-muji-accent text-lg mr-2"></i>
-                    <h3 class="font-bold text-base text-muji-text">美食與甜點圖鑑</h3>
-                </div>
-                
-                <div class="space-y-3 mt-3">
-                    <div class="border-l-2 border-muji-accent pl-3">
-                        <p class="font-bold text-sm">Onori (ONORI) 拉麵 <span class="text-[10px] font-normal text-gray-500 bg-gray-100 px-1 rounded ml-1">梅屋敷</span></p>
-                        <p class="text-[10px] text-muji-accent font-bold mt-0.5">營：11:00-15:00 / 18:00-21:00</p>
-                        <p class="text-xs text-muji-muted mt-1">住宿地附近的在地高評價拉麵，晚上去務必注意最後點餐時間。</p>
-                    </div>
-                    <div class="border-l-2 border-muji-accent pl-3">
-                        <p class="font-bold text-sm">Center Beef 橫濱關內本店 <span class="text-[10px] font-normal text-gray-500 bg-gray-100 px-1 rounded ml-1">橫濱</span></p>
-                        <p class="text-[10px] text-muji-accent font-bold mt-0.5">營：11:00-15:00 / 17:00-22:00</p>
-                        <p class="text-xs text-muji-muted mt-1">超有飽足感的高品質牛排飯，看演唱會前絕佳體力補給。</p>
-                    </div>
-                    <div class="border-l-2 border-muji-accent pl-3">
-                        <p class="font-bold text-sm">Yokohama Niku Sushi (肉壽司) <span class="text-[10px] font-normal text-gray-500 bg-gray-100 px-1 rounded ml-1">橫濱</span></p>
-                        <p class="text-[10px] text-muji-accent font-bold mt-0.5">營：17:00-24:00 (假日至04:00)</p>
-                        <p class="text-xs text-muji-muted mt-1">演唱會結束後的宵夜首選，入口即化的生肉壽司居酒屋。</p>
-                    </div>
-                    <div class="border-l-2 border-pink-400 pl-3">
-                        <p class="font-bold text-sm">YOKOHAMA SORAiRO gelato <span class="text-[10px] font-normal text-gray-500 bg-gray-100 px-1 rounded ml-1">橫濱</span></p>
-                        <p class="text-[10px] text-pink-500 font-bold mt-0.5">營：11:00-19:00 (週三休)</p>
-                        <p class="text-xs text-muji-muted mt-1">隱身在橫濱元町旁的超好拍網美義式冰淇淋。</p>
-                    </div>
-                    <div class="border-l-2 border-pink-400 pl-3">
-                        <p class="font-bold text-sm">J.S. Pancake Cafe <span class="text-[10px] font-normal text-gray-500 bg-gray-100 px-1 rounded ml-1">MARK IS</span></p>
-                        <p class="text-[10px] text-pink-500 font-bold mt-0.5">營：10:00-20:00</p>
-                        <p class="text-xs text-muji-muted mt-1">口感綿密鬆軟的日式舒芙蕾鬆餅名店。</p>
-                    </div>
-                    <div class="border-l-2 border-muji-accent pl-3">
-                        <p class="font-bold text-sm">日本橋炸豬排 一 HAJIME <span class="text-[10px] font-normal text-gray-500 bg-gray-100 px-1 rounded ml-1">日本橋</span></p>
-                        <p class="text-[10px] text-muji-accent font-bold mt-0.5">營：11:00-15:00 / 17:00-20:00</p>
-                        <p class="text-xs text-muji-muted mt-1">厚實多汁的知名豬排店，經常大排長龍。</p>
-                    </div>
-                    <div class="border-l-2 border-pink-400 pl-3">
-                        <p class="font-bold text-sm">Afternoon Tea LOVE & TABLE <span class="text-[10px] font-normal text-gray-500 bg-gray-100 px-1 rounded ml-1">表參道</span></p>
-                        <p class="text-[10px] text-pink-500 font-bold mt-0.5">營：10:00-20:00</p>
-                        <p class="text-xs text-muji-muted mt-1">表參道必吃的水果千層蛋糕名店。</p>
-                    </div>
-                    <div class="border-l-2 border-pink-400 pl-3">
-                        <p class="font-bold text-sm">Domremy Outlet 上野駅前店 <span class="text-[10px] font-normal text-gray-500 bg-gray-100 px-1 rounded ml-1">上野</span></p>
-                        <p class="text-[10px] text-pink-500 font-bold mt-0.5">營：10:00-21:00</p>
-                        <p class="text-xs text-muji-muted mt-1">銅板價的甜點過季工廠直營店，掃貨布丁與蛋糕邊必去。</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 動漫與商場介紹 -->
-            <div class="bg-muji-card rounded-md border border-muji-border p-4 shadow-sm text-sm">
-                <div class="flex items-center mb-2">
-                    <i class="fa-solid fa-store text-muji-accent text-lg mr-2"></i>
-                    <h3 class="font-bold text-base text-muji-text">動漫、商場與商店街</h3>
-                </div>
-                
-                <div class="space-y-3 mt-3">
-                    <div class="border-l-2 border-blue-400 pl-3">
-                        <p class="font-bold text-sm">池袋 animate 總店</p>
-                        <p class="text-[10px] text-blue-500 font-bold mt-0.5">營：11:00-21:00 (週末10:00開始)</p>
-                        <p class="text-xs text-muji-muted mt-1">世界最大的動漫專賣店。晚上可最後一站逛。</p>
-                    </div>
-                    <div class="border-l-2 border-blue-400 pl-3">
-                        <p class="font-bold text-sm text-red-600">池袋 Lashinbang (らしんばん)</p>
-                        <p class="text-[10px] text-red-500 font-bold mt-0.5">營：11:00-20:00 ⚠️注意打烊時間</p>
-                        <p class="text-xs text-muji-muted mt-1">二手尋寶聖地，尋找絕版周邊與徽章的必逛之處。</p>
-                    </div>
-                    <div class="border-l-2 border-blue-400 pl-3">
-                        <p class="font-bold text-sm text-red-600">池袋 太陽城 (Sunshine City)</p>
-                        <p class="text-[10px] text-red-500 font-bold mt-0.5">營：多數店家與寶可夢中心 10:00-20:00</p>
-                        <p class="text-xs text-muji-muted mt-1">內有 Pokémon Center Mega Tokyo 與水族館 (水族館至21:00)。</p>
-                    </div>
-                    <div class="border-l-2 border-blue-400 pl-3">
-                        <p class="font-bold text-sm">澀谷 THE★JOJO WORLD & 寶可夢</p>
-                        <p class="text-[10px] text-blue-500 font-bold mt-0.5">營：11:00-21:00 (澀谷PARCO營業時間)</p>
-                        <p class="text-xs text-muji-muted mt-1">JOJO迷與寶可夢粉專屬聖地，注意百貨 11:00 才開門。</p>
-                    </div>
-                    <div class="border-l-2 border-blue-400 pl-3">
-                        <p class="font-bold text-sm">上野阿美橫商店街</p>
-                        <p class="text-[10px] text-blue-500 font-bold mt-0.5">營：多數店鋪 10:00 開始營業</p>
-                        <p class="text-xs text-muji-muted mt-1">集結藥妝、小吃、服飾的超大型露天商店街。</p>
-                    </div>
-                    <div class="border-l-2 border-blue-400 pl-3">
-                        <p class="font-bold text-sm">高圓寺商店街 (純情 / PAL / 古著)</p>
-                        <p class="text-[10px] text-blue-500 font-bold mt-0.5">營：古著店多於 12:00 或 13:00 開門，營業至 20:00</p>
-                        <p class="text-xs text-muji-muted mt-1">特色古著 KIKI2 以及充滿在地生活感的純情商店街。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= WALLET ================= -->
-        <section id="tab-wallet" class="tab-content p-5">
-            <div class="bg-muji-card rounded-md border border-muji-border p-4 shadow-sm mb-4">
-                <h3 class="text-sm font-bold mb-2">匯率計算機</h3>
-                <input type="number" id="rate-input" value="0.215" step="0.001" class="border border-muji-border p-2 w-full text-sm mb-2 rounded" placeholder="匯率">
-                <input type="text" id="math-input" placeholder="日幣算式 (如: 1500+300)" class="border border-muji-border p-2 w-full text-sm mb-2 rounded focus:border-muji-accent">
-                <div class="bg-muji-bg rounded p-2 text-center text-xl font-bold text-muji-accent" id="calc-result">NT$ 0</div>
-            </div>
-
-            <div class="bg-muji-card rounded-md border border-muji-border p-4 shadow-sm mb-4">
-                <h3 class="text-sm font-bold mb-2">新增支出</h3>
-                <input type="text" id="expense-name" placeholder="品項名稱 (如: KEEN鞋子)" class="border border-muji-border p-2 w-full text-sm mb-2 rounded focus:border-muji-accent">
-                <input type="number" id="expense-jpy" placeholder="日幣 (¥)" class="border border-muji-border p-2 w-full text-sm mb-3 rounded focus:border-muji-accent">
-                <button id="add-expense-btn" class="w-full bg-muji-accent text-white py-2 rounded font-bold">儲存金額</button>
-            </div>
-            
-            <h3 class="text-sm font-bold mb-2 text-muji-text">支出明細</h3>
-            <div id="expense-list" class="space-y-2 pb-4"></div>
-        </section>
-
-        <!-- ================= LISTS ================= -->
-        <section id="tab-lists" class="tab-content p-5">
-            <!-- 動態裝備清單 -->
-            <div class="bg-muji-card rounded-md border border-muji-border p-4 shadow-sm mb-4">
-                <h3 class="text-sm font-bold mb-2">行李與裝備清單</h3>
-                <div class="flex mb-3">
-                    <input type="text" id="chk-input" class="flex-1 border border-muji-border rounded-l p-2 text-sm bg-muji-bg focus:border-muji-accent outline-none" placeholder="新增裝備 (如: 雨傘)">
-                    <button id="add-chk-btn" class="bg-muji-accent text-white px-4 rounded-r text-sm hover:bg-opacity-90 font-bold">新增</button>
-                </div>
-                <ul id="checklist-container" class="space-y-2 text-sm"></ul>
-            </div>
-
-            <!-- 待辦事項清單 -->
-            <div class="bg-muji-card rounded-md border border-muji-border p-4 shadow-sm">
-                <h3 class="text-sm font-bold mb-2">待辦事項 (Todo List)</h3>
-                <div class="flex mb-3">
-                    <input type="text" id="todo-input" class="flex-1 border border-muji-border rounded-l p-2 text-sm bg-muji-bg focus:border-muji-accent outline-none" placeholder="新增待辦 (如: 買演唱會周邊)">
-                    <button id="add-todo-btn" class="bg-muji-accent text-white px-4 rounded-r text-sm hover:bg-opacity-90 font-bold">新增</button>
-                </div>
-                <ul id="todo-list" class="space-y-2 text-sm"></ul>
-            </div>
-        </section>
-
-        <!-- ================= INFO ================= -->
-        <section id="tab-info" class="tab-content p-5 space-y-4">
-            <div class="bg-muji-card border border-muji-border p-4 rounded-md shadow-sm">
-                <h3 class="font-bold text-muji-text mb-2"><i class="fa-solid fa-train text-muji-accent mr-1"></i> 交通與住宿資訊</h3>
-                <ul class="text-sm text-muji-text list-disc pl-4 space-y-2 mb-3">
-                    <li><b>住宿據點：</b> 大森西 5-1-4 (鄰近京急線大森町站)<br><span class="text-xs text-muji-muted">優勢：往返橫濱超快速，去成田機場也能一車直達。</span></li>
-                    <li><b>推薦票券：</b> 以使用 <b>西瓜卡 (Suica)</b> 或 <b>PASMO</b> 刷卡進出站為主，因為行程跨越 JR、東京地鐵與京急線，買單一地鐵券不見得划算。</li>
-                </ul>
-            </div>
-
-            <div class="bg-muji-card border border-muji-border p-4 rounded-md shadow-sm">
-                <h3 class="font-bold text-muji-text mb-2"><i class="fa-solid fa-cloud-sun text-muji-accent mr-1"></i> 天氣與穿衣建議</h3>
-                <p class="text-sm font-bold text-muji-text mb-1">🌡️ 10月初東京氣溫：約 17°C - 24°C</p>
-                <ul class="text-sm text-muji-text list-disc pl-4 space-y-1 mb-3">
-                    <li><b>白天：</b>舒適的秋天，穿薄長袖或短袖搭薄外套即可。</li>
-                    <li><b>夜間：</b>早晚溫差大，加上橫濱海風較冷，<span class="text-red-500 font-bold">務必隨身攜帶防風外套</span>。</li>
-                    <li><b>鞋履：</b>每天都會走破萬步，建議穿最舒適、耐走的舊運動鞋。</li>
-                </ul>
-            </div>
-            
-            <div class="bg-muji-card border border-muji-border p-4 rounded-md shadow-sm">
-                <h3 class="font-bold mb-2"><i class="fa-solid fa-phone text-muji-accent mr-1"></i> 緊急聯絡</h3>
-                <p class="text-sm">報警：110 | 救護車：119</p>
-                <p class="text-sm mt-1">台北駐日代表處：080-1009-7179</p>
-            </div>
-        </section>
-    </main>
-
-    <!-- 底部導覽列 -->
-    <nav class="bg-muji-card border-t border-muji-border h-16 flex fixed bottom-0 w-full z-20 pb-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
-        <button class="nav-btn flex-1 flex flex-col items-center justify-center text-muji-accent transition-colors" data-target="tab-plan">
-            <i class="fa-solid fa-map pointer-events-none text-lg"></i>
-            <span class="text-[10px] font-bold pointer-events-none mt-1">PLAN</span>
-        </button>
-        <button class="nav-btn flex-1 flex flex-col items-center justify-center text-muji-muted hover:text-muji-accent transition-colors" data-target="tab-guide">
-            <i class="fa-solid fa-book-open pointer-events-none text-lg"></i>
-            <span class="text-[10px] font-bold pointer-events-none mt-1">GUIDE</span>
-        </button>
-        <button class="nav-btn flex-1 flex flex-col items-center justify-center text-muji-muted hover:text-muji-accent transition-colors" data-target="tab-wallet">
-            <i class="fa-solid fa-wallet pointer-events-none text-lg"></i>
-            <span class="text-[10px] font-bold pointer-events-none mt-1">WALLET</span>
-        </button>
-        <button class="nav-btn flex-1 flex flex-col items-center justify-center text-muji-muted hover:text-muji-accent transition-colors" data-target="tab-lists">
-            <i class="fa-solid fa-list-check pointer-events-none text-lg"></i>
-            <span class="text-[10px] font-bold pointer-events-none mt-1">LISTS</span>
-        </button>
-        <button class="nav-btn flex-1 flex flex-col items-center justify-center text-muji-muted hover:text-muji-accent transition-colors" data-target="tab-info">
-            <i class="fa-solid fa-circle-info pointer-events-none text-lg"></i>
-            <span class="text-[10px] font-bold pointer-events-none mt-1">INFO</span>
-        </button>
-    </nav>
-
-    <script>
-        // 本地儲存模組
-        const safeStore = {
-            get: (k, d) => { try{ return JSON.parse(localStorage.getItem(k)) || d; } catch(e){ return d; } },
-            set: (k, v) => { try{ localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
-        };
-
-        // 選單切換邏輯 (徹底修復手機版顏色不變 Bug)
-        const tabs = { 'tab-plan':'行程表', 'tab-guide':'導覽', 'tab-wallet':'記帳', 'tab-lists':'清單與待辦', 'tab-info':'資訊' };
-        document.querySelectorAll('.nav-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                // 使用 this 確保抓到 button 元素本身，不受內部 i 或 span 影響
-                const target = this.dataset.target;
-                
-                // 重置所有按鈕顏色：移除 accent 色，加入 muted 色
-                document.querySelectorAll('.nav-btn').forEach(b => {
-                    b.classList.remove('text-muji-accent');
-                    b.classList.add('text-muji-muted');
-                });
-                
-                // 點亮當前按鈕：移除 muted 色，加入 accent 色
-                this.classList.remove('text-muji-muted');
-                this.classList.add('text-muji-accent');
-                
-                // 切換分頁內容
-                document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-                document.getElementById(target).classList.add('active');
-                document.getElementById('header-title').textContent = tabs[target];
-            });
-        });
-
-        // 匯率記帳邏輯
-        const rateIn = document.getElementById('rate-input'), mathIn = document.getElementById('math-input'), res = document.getElementById('calc-result');
-        const updateCalc = () => {
-            try { 
-                const math = mathIn.value.replace(/[^-()\d/*+.]/g, ''); 
-                const jpy = math ? new Function('return ' + math)() : 0;
-                res.textContent = `NT$ ${Math.round(jpy * (parseFloat(rateIn.value)||0.215)).toLocaleString()}`;
-            } catch(e) {}
-        };
-        rateIn.addEventListener('input', updateCalc); mathIn.addEventListener('input', updateCalc);
-
-        let exps = safeStore.get('tokyo_exp', []);
-        const renderExp = () => {
-            const rate = parseFloat(rateIn.value) || 0.215;
-            document.getElementById('expense-list').innerHTML = [...exps].reverse().map((e, i) => `
-                <div class="bg-white border border-muji-border rounded p-3 flex justify-between shadow-sm">
-                    <div><p class="text-sm font-bold text-muji-text">${e.n}</p><p class="text-xs text-red-500 cursor-pointer mt-1" onclick="delExp(${exps.length-1-i})"><i class="fa-solid fa-trash mr-1"></i>刪除</p></div>
-                    <div class="text-right"><p class="text-sm font-bold text-muji-text">¥${e.j}</p><p class="text-xs text-muji-muted">NT$${Math.round(e.j*rate)}</p></div>
-                </div>`).join('');
-        };
-        document.getElementById('add-expense-btn').addEventListener('click', () => {
-            const n = document.getElementById('expense-name').value.trim();
-            const j = parseInt(document.getElementById('expense-jpy').value);
-            if(n && j) { exps.push({n, j}); safeStore.set('tokyo_exp', exps); renderExp(); }
-            document.getElementById('expense-name').value=''; document.getElementById('expense-jpy').value='';
-        });
-        window.delExp = (i) => { exps.splice(i, 1); safeStore.set('tokyo_exp', exps); renderExp(); };
-
-        // 裝備清單邏輯 (動態新增刪除)
-        const defaultChecks = [
-            {text: "護照", done: false},
-            {text: "手機與備用機", done: false},
-            {text: "演唱會電子票券/證明", done: false},
-            {text: "網卡", done: false},
-            {text: "西瓜卡/實體交通卡", done: false},
-            {text: "信用卡", done: false},
-            {text: "日幣", done: false},
-            {text: "行動電源", done: false},
-            {text: "行李秤", done: false},
-            {text: "折疊購物袋", done: false},
-            {text: "防曬/防風外套", done: false},
-            {text: "Visit Japan Web 截圖", done: false}
-        ];
-        
-        let chkItems = safeStore.get('tokyo_dyn_chk', defaultChecks);
-        const chkList = document.getElementById('checklist-container');
-        const chkInput = document.getElementById('chk-input');
-
-        function renderChks() {
-            chkList.innerHTML = '';
-            if(chkItems.length === 0) {
-                chkList.innerHTML = '<p class="text-xs text-muji-muted text-center py-2">目前沒有裝備</p>';
-                return;
-            }
-            chkItems.forEach((t, i) => {
-                const li = document.createElement('li');
-                li.className = 'flex items-center justify-between p-2 hover:bg-muji-bg rounded border border-transparent hover:border-muji-border transition-colors';
-                li.innerHTML = `
-                    <div class="flex items-center flex-1 overflow-hidden cursor-pointer" onclick="toggleChk(${i})">
-                        <input type="checkbox" class="w-4 h-4 mr-3 accent-muji-accent shrink-0" ${t.done ? 'checked' : ''} onclick="event.stopPropagation(); toggleChk(${i})">
-                        <span class="flex-1 truncate ${t.done ? 'line-through text-muji-muted' : 'text-muji-text'} text-sm select-none">${t.text}</span>
-                    </div>
-                    <div class="flex space-x-2 ml-2 shrink-0">
-                        <button onclick="editChk(${i})" class="text-blue-500 hover:text-blue-700 p-1"><i class="fa-solid fa-pen"></i></button>
-                        <button onclick="delChk(${i})" class="text-red-500 hover:text-red-700 p-1"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                `;
-                chkList.appendChild(li);
-            });
-        }
-
-        document.getElementById('add-chk-btn').addEventListener('click', () => {
-            const val = chkInput.value.trim();
-            if(val) {
-                chkItems.push({text: val, done: false});
-                safeStore.set('tokyo_dyn_chk', chkItems);
-                chkInput.value = '';
-                renderChks();
-            }
-        });
-
-        window.toggleChk = (i) => {
-            chkItems[i].done = !chkItems[i].done;
-            safeStore.set('tokyo_dyn_chk', chkItems);
-            renderChks();
-        }
-
-        window.editChk = (i) => {
-            const newVal = prompt('修改裝備：', chkItems[i].text);
-            if(newVal !== null && newVal.trim() !== '') {
-                chkItems[i].text = newVal.trim();
-                safeStore.set('tokyo_dyn_chk', chkItems);
-                renderChks();
-            }
-        }
-
-        window.delChk = (i) => {
-            chkItems.splice(i, 1);
-            safeStore.set('tokyo_dyn_chk', chkItems);
-            renderChks();
-        }
-
-        // 待辦事項邏輯
-        let todos = safeStore.get('tokyo_todos', []);
-        const todoList = document.getElementById('todo-list');
-        const todoInput = document.getElementById('todo-input');
-
-        function renderTodos() {
-            todoList.innerHTML = '';
-            if(todos.length === 0) {
-                todoList.innerHTML = '<p class="text-xs text-muji-muted text-center py-2">目前沒有待辦事項</p>';
-                return;
-            }
-            todos.forEach((t, i) => {
-                const li = document.createElement('li');
-                li.className = 'flex items-center justify-between p-2 hover:bg-muji-bg rounded border border-transparent hover:border-muji-border transition-colors';
-                li.innerHTML = `
-                    <div class="flex items-center flex-1 overflow-hidden cursor-pointer" onclick="toggleTodo(${i})">
-                        <input type="checkbox" class="w-4 h-4 mr-3 accent-muji-accent shrink-0" ${t.done ? 'checked' : ''} onclick="event.stopPropagation(); toggleTodo(${i})">
-                        <span class="flex-1 truncate ${t.done ? 'line-through text-muji-muted' : 'text-muji-text'} text-sm select-none">${t.text}</span>
-                    </div>
-                    <div class="flex space-x-2 ml-2 shrink-0">
-                        <button onclick="editTodo(${i})" class="text-blue-500 hover:text-blue-700 p-1"><i class="fa-solid fa-pen"></i></button>
-                        <button onclick="delTodo(${i})" class="text-red-500 hover:text-red-700 p-1"><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                `;
-                todoList.appendChild(li);
-            });
-        }
-
-        document.getElementById('add-todo-btn').addEventListener('click', () => {
-            const val = todoInput.value.trim();
-            if(val) {
-                todos.push({text: val, done: false});
-                safeStore.set('tokyo_todos', todos);
-                todoInput.value = '';
-                renderTodos();
-            }
-        });
-
-        window.toggleTodo = (i) => {
-            todos[i].done = !todos[i].done;
-            safeStore.set('tokyo_todos', todos);
-            renderTodos();
-        }
-
-        window.editTodo = (i) => {
-            const newVal = prompt('修改待辦事項：', todos[i].text);
-            if(newVal !== null && newVal.trim() !== '') {
-                todos[i].text = newVal.trim();
-                safeStore.set('tokyo_todos', todos);
-                renderTodos();
-            }
-        }
-
-        window.delTodo = (i) => {
-            todos.splice(i, 1);
-            safeStore.set('tokyo_todos', todos);
-            renderTodos();
-        }
-
-        // 初始化渲染
-        renderExp(); 
-        renderChks();
-        renderTodos(); 
-        updateCalc();
-    </script>
-</body>
-</html>
+                        <p class="text-xs text-muji-accent font-bold">16:00</p>
+                        <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                            <p class="text-sm font-bold text-muji-text">高圓寺站</p>
+                            <span class="text-[9px] text-gray-600 bg-gray-100 ... （33 KB 剩餘）
